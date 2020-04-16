@@ -19,11 +19,12 @@ using namespace std;
 
 
 TEST_CASE("Family of Jim") {
-    family::Tree T("jim");
-    CHECK(T.relation("sam") == string("sam"));
-    CHECK(T.relation("sam") == string("sam"));
-    CHECK(T.relation("sam") == string("sam"));
-    CHECK(T.relation("sam") == string("sam"));
+    family::Tree t("jim");
+    CHECK(t.relation("sam") == string("sam"));
+    CHECK_THROWS(t.find("father"));
+    t.addFather("jim","dan");
+    t.addFather("dan","tim");
+
 }
 
 /* Add more test cases here */
