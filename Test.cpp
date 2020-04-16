@@ -1,21 +1,19 @@
-/**
- * An example of how to write unit tests.
- * Use this as a basis to build a more complete Test.cpp file.
- * 
- * IMPORTANT: Please write more tests - the tests here are only for example and are not complete.
- *
- * AUTHORS: <Please write your names here>
- * 
- * Date: 2020-02
- */
+
 
 #include "doctest.h"
 #include "FamilyTree.hpp"
 using namespace family;
-
 #include <string>
 using namespace std;
 
+#include <iostream>
+#include "string.h"
+#include <stdexcept>
+#include <cstdlib>
+#include <string.h>
+#include <stdio.h>
+#include <exception>
+#include <bits/stdc++.h>
 
 
 TEST_CASE("Family of Jim") {
@@ -28,10 +26,9 @@ TEST_CASE("Family of Jim") {
     CHECK(t.relation("dan") == string("father"));
     CHECK(t.relation("tim") == string("grandfather"));
     CHECK(t.relation("dana") == string("great-grandmother"));
-    CHECK_THROWS(t.relation("netanel"));
-
+    CHECK(t.relation("netanel")==string("unrelated"));
 }
-
+/*
 TEST_CASE("Family of robert"){
     family::Tree t("robert");
     t.addFather("robert","tommy");
@@ -43,32 +40,8 @@ TEST_CASE("Family of robert"){
     CHECK(t.find("mother") == string("tommy"));
     CHECK(t.relation("joe") == string("unrelated"));
     CHECK(t.find("father") == string("thomas"));
+    t.remove("robert");
+    CHECK_THROWS(t.relation("robert"));
 }
 
-/* Add more test cases here */
-/*
-CHECK_THROWS(find(text,"forbeav"));
-*/
-
-
-/*
-
-#include "doctest.h"
-#include "PhoneticFinder.hpp"
-using namespace phonetic;
-
-#include <string>
-using namespace std;
-
-
-
-TEST_CASE("Test replacement of p and b") {
-    string text = "xxx happy yyy";
-    CHECK(find(text, "happy") == string("happy"));
-    CHECK(find(text, "habby") == string("happy"));
-    CHECK(find(text, "hapby") == string("happy"));
-    CHECK(find(text, "habpy") == string("happy"));
-   
-}
-
-*/
+    */
