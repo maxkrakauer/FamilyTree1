@@ -1,26 +1,55 @@
-#define DOCTEST_CONFIG_IMPLEMENT
+/**
+ * An example of how to write unit tests.
+ * Use this as a basis to build a more complete Test.cpp file.
+ * 
+ * IMPORTANT: Please write more tests - the tests here are only for example and are not complete.
+ *
+ * AUTHORS: <Please write your names here>
+ * 
+ * Date: 2020-02
+ */
+
 #include "doctest.h"
-using namespace doctest;
+#include "FamilyTree.hpp"
+using namespace family;
 
-const int MIN_TESTS = 100;
+#include <string>
+using namespace std;
 
-struct ReporterCounter: public ConsoleReporter {
-    ReporterCounter(const ContextOptions& input_options)
-            : ConsoleReporter(input_options) {}
 
-    void test_run_end(const TestRunStats& run_stats) override {
-        if (run_stats.numAsserts >= MIN_TESTS) {
-            std::cout << 100 << std::endl;
-        } else {
-            std::cout << "Please write at least " << MIN_TESTS << " tests! " <<  std::endl << 0  << std::endl;
-        }
-    }
-};
 
-REGISTER_REPORTER("counter", 1, ReporterCounter);
-
-int main(int argc, char** argv) {
-    Context context;
-    context.addFilter("reporters", "counter");
-    context.run();
+TEST_CASE("Family of Jim") {
+    family::Tree T("jim");
+    CHECK(T.relation("sam") == string("sam"));
+    CHECK(T.relation("sam") == string("sam"));
+    CHECK(T.relation("sam") == string("sam"));
+    CHECK(T.relation("sam") == string("sam"));
 }
+
+/* Add more test cases here */
+/*
+CHECK_THROWS(find(text,"forbeav"));
+*/
+
+
+/*
+
+#include "doctest.h"
+#include "PhoneticFinder.hpp"
+using namespace phonetic;
+
+#include <string>
+using namespace std;
+
+
+
+TEST_CASE("Test replacement of p and b") {
+    string text = "xxx happy yyy";
+    CHECK(find(text, "happy") == string("happy"));
+    CHECK(find(text, "habby") == string("happy"));
+    CHECK(find(text, "hapby") == string("happy"));
+    CHECK(find(text, "habpy") == string("happy"));
+   
+}
+
+*/
